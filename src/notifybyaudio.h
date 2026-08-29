@@ -19,7 +19,7 @@ class KNotification;
 
 struct ca_context;
 
-class NotifyByAudio : public KNotificationPlugin
+class NotifyByAudio : public QObject
 {
     Q_OBJECT
 
@@ -27,12 +27,8 @@ public:
     explicit NotifyByAudio(QObject *parent = nullptr);
     ~NotifyByAudio() override;
 
-    QString optionName() override
-    {
-        return QStringLiteral("Sound");
-    }
-    void notify(KNotification *notification, const KNotifyConfig &notifyConfig) override;
-    void close(KNotification *notification) override;
+    void notify(KNotification *notification, const KNotifyConfig &notifyConfig);
+    void close(KNotification *notification);
 
 private Q_SLOTS:
     void finishCallback(uint32_t id, int error_code);
