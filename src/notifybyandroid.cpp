@@ -152,6 +152,10 @@ KNotificationData NotifyByAndroid::createAndroidNotification(KNotification *noti
 
 void NotifyByAndroid::notify(KNotification *notification, const KNotifyConfig &notifyConfig)
 {
+    if (!notifyConfig.actions().testFlag(KNotifyConfig::Popup)) {
+        return;
+    }
+
     const auto n = createAndroidNotification(notification, notifyConfig);
     m_notifications.insert(notification->id(), notification);
 
