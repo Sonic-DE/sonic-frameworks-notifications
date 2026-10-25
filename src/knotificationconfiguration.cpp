@@ -53,7 +53,8 @@ static void detectCapabilities()
 
     if (QFileInfo::exists(u"/.flatpak-info"_s)) {
         // technically only for Plasma >= 6.7, but we have no way to detect that
-        s_capabilities.hasSystemSettingsUri = qgetenv("XDG_CURRENT_DESKTOP") == "KDE";
+        const auto desktops = qgetenv("XDG_CURRENT_DESKTOP").split(':');
+        s_capabilities.hasSystemSettingsUri = desktops.contains("SonicDE") || desktops.contains("KDE");
         return;
     }
 
