@@ -2,9 +2,10 @@
 
 Sonic Frameworks Notifications lets apps show desktop notifications, sounds and alerts in SonicDE.
 
-## Unreleased
+## 6.31.0.1 (2026-11-10)
 
 - Apps installed from Flatpak now recognize SonicDE and can take you straight to their notification settings.
+- Behind the scenes: repository tidying.
 
 ## 6.31.0 (2026-10-20)
 
